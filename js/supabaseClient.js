@@ -1,6 +1,6 @@
 // Fill these in from your Supabase project: Settings > API
 const SUPABASE_URL = "ltrquybbjeabtufkxbym";
-const SUPABASE_ANON_KEY = "sb_publishable_NXOAbOdanfZGaRiN5peblg_i-UUV6K_";
+const SUPABASE_ANON_KEY = "sb_publishable_NXOAbOdanfZGaRiN5peblg_i-UUV6K_";// public key
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
