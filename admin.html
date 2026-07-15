@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Tuition Center Portal</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="sidebar">
+      <div class="brand"><span class="dot"></span>TCP Admin</div>
+      <div class="nav-item active">Overview</div>
+      <div class="nav-item" onclick="document.getElementById('users-section').scrollIntoView()">Users</div>
+      <div class="nav-item" onclick="document.getElementById('classes-section').scrollIntoView()">Classes</div>
+      <div class="nav-item" onclick="logout()" style="margin-top:auto;color:#E86A63;">Log out</div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <h1>Overview</h1>
+        <div class="user-chip" id="user-chip">Loading…</div>
+      </div>
+
+      <div class="grid grid-3 mt-16" id="stats-row">
+        <div class="card stat-card"><div class="stat-value" id="stat-teachers">–</div><div class="stat-label">Teachers</div></div>
+        <div class="card stat-card"><div class="stat-value" id="stat-students">–</div><div class="stat-label">Students</div></div>
+        <div class="card stat-card"><div class="stat-value" id="stat-classes">–</div><div class="stat-label">Classes</div></div>
+      </div>
+
+      <div class="card mt-16" id="users-section">
+        <div class="section-title flex-between">
+          <span>Users</span>
+          <button onclick="document.getElementById('new-user-form').classList.toggle('hidden-form')">+ Add user</button>
+        </div>
+
+        <form id="new-user-form" class="hidden-form" style="margin-bottom:20px;">
+          <div class="grid grid-2">
+            <div>
+              <label>Role</label>
+              <select id="nu-role">
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div>
+              <label>Name</label>
+              <input id="nu-name" required>
+            </div>
+            <div>
+              <label>Email</label>
+              <input id="nu-email" type="email" required>
+            </div>
+            <div>
+              <label>Temporary password</label>
+              <input id="nu-password" type="text" required placeholder="min 6 characters">
+            </div>
+            <div>
+              <label>Phone (for WhatsApp messages)</label>
+              <input id="nu-phone" placeholder="e.g. 91XXXXXXXXXX">
+            </div>
+            <div id="nu-subject-wrap">
+              <label>Subject (teacher only)</label>
+              <input id="nu-subject">
+            </div>
+            <div id="nu-teacher-wrap" style="display:none;">
+              <label>Assign to teacher (student only)</label>
+              <select id="nu-teacher"></select>
+            </div>
+          </div>
+          <div class="error-msg" id="nu-error"></div>
+          <button type="submit">Create user</button>
+        </form>
+
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Subject/Grade</th><th>Phone</th><th></th></tr></thead>
+          <tbody id="users-table-body"><tr><td colspan="5" class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="card mt-16" id="classes-section">
+        <div class="section-title flex-between">
+          <span>Classes</span>
+          <button onclick="document.getElementById('new-class-form').classList.toggle('hidden-form')">+ Add class</button>
+        </div>
+
+        <form id="new-class-form" class="hidden-form" style="margin-bottom:20px;">
+          <div class="grid grid-2">
+            <div>
+              <label>Teacher</label>
+              <select id="nc-teacher"></select>
+            </div>
+            <div>
+              <label>Subject</label>
+              <input id="nc-subject" required>
+            </div>
+            <div>
+              <label>Jitsi room name (unique, no spaces)</label>
+              <input id="nc-room" required placeholder="e.g. tcp-science-9th">
+            </div>
+            <div>
+              <label>Schedule</label>
+              <input id="nc-schedule" placeholder="e.g. Mon/Wed/Fri 5:00 PM">
+            </div>
+          </div>
+          <div class="error-msg" id="nc-error"></div>
+          <button type="submit">Create class</button>
+        </form>
+
+        <table>
+          <thead><tr><th>Subject</th><th>Teacher</th><th>Room</th><th>Schedule</th></tr></thead>
+          <tbody id="classes-table-body"><tr><td colspan="4" class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <style>.hidden-form{display:none;}</style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabaseClient.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

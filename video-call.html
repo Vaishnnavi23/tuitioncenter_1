@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Class — Tuition Center Portal</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="main" style="max-width:100%;">
+    <div class="topbar">
+      <h1 id="room-title">Live Class</h1>
+      <a href="javascript:history.back()" class="btn-ghost btn">← Back</a>
+    </div>
+    <div id="jitsi-container"></div>
+  </div>
+
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabaseClient.js"></script>
+  <script src="/js/videocall.js"></script>
+</body>
+</html>

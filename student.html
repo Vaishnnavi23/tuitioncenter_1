@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student — Tuition Center Portal</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="sidebar">
+      <div class="brand"><span class="dot"></span>TCP Student</div>
+      <div class="nav-item" onclick="document.getElementById('classes-section').scrollIntoView()">Classes</div>
+      <div class="nav-item" onclick="document.getElementById('attendance-section').scrollIntoView()">Attendance</div>
+      <div class="nav-item" onclick="document.getElementById('homework-section').scrollIntoView()">Homework</div>
+      <div class="nav-item" onclick="logout()" style="margin-top:auto;color:#E86A63;">Log out</div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <h1>My Classes</h1>
+        <div class="user-chip" id="user-chip">Loading…</div>
+      </div>
+
+      <div class="card" id="classes-section">
+        <div class="section-title">Classes</div>
+        <table>
+          <thead><tr><th>Subject</th><th>Schedule</th><th></th></tr></thead>
+          <tbody id="classes-body"><tr><td colspan="3" class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="card mt-16" id="attendance-section">
+        <div class="section-title">My attendance</div>
+        <table>
+          <thead><tr><th>Date</th><th>Status</th></tr></thead>
+          <tbody id="attendance-body"><tr><td colspan="2" class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="card mt-16" id="homework-section">
+        <div class="section-title">Homework</div>
+        <div id="homework-list" class="muted">Loading…</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabaseClient.js"></script>
+  <script src="/js/student.js"></script>
+</body>
+</html>
