@@ -1,6 +1,6 @@
 // Fill these in from your Supabase project: Settings > API
 const SUPABASE_URL = "ltrquybbjeabtufkxbym";
-const SUPABASE_ANON_KEY = "sb_secret_A8YUmSAWgC6xGaFZX3h-3Q_S51cZqpH";
+const SUPABASE_ANON_KEY = "sb_secret_wHQEVILff1nALLetzl_8wQ_pZNDnaGK";
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
